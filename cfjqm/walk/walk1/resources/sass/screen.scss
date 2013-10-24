@@ -1,0 +1,57 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+
+@import "compass/css3";
+
+
+.nav-glyphish-example .ui-btn .ui-btn-inner {
+	padding-top: 40px !important;
+}
+.nav-glyphish-example .ui-btn .ui-icon {
+	width: 30px!important;
+	height: 30px!important;
+	margin-left: -15px !important;
+	box-shadow: none!important;
+	-moz-box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+#maplink .ui-icon {
+	background: url(/cfjqm/glyphish/PNG/103-map.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+#homelink .ui-icon {
+	background: url(/cfjqm/glyphish/PNG/53-house.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+#applicantviewlink .ui-icon {
+	background: url(/cfjqm/glyphish/PNG/111-user.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+#appicationformlink .ui-icon {
+	background: url(/cfjqm/glyphish/PNG/187-pencil.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+	
+}
+#chatlink .ui-icon {
+	@include background(inline-image("08-chat.png"));
+	background-repeat:no-repeat;
+	background-size: 24px 22px;
+	background-position: center;
+}
+#applicantDetailContent label {
+	display: block;
+	float: left;
+	width: 50px;
+	font-weight: bold;
+}
+.center-wrapper {
+	text-align: center;
+}
+.center-wrapper * {
+	margin: 0 auto;
+}

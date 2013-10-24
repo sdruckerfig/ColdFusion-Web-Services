@@ -1,0 +1,291 @@
+CREATE DATABASE  IF NOT EXISTS `ftst` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ftst`;
+-- MySQL dump 10.13  Distrib 5.5.24, for osx10.5 (i386)
+--
+-- Host: localhost    Database: ftst
+-- ------------------------------------------------------
+-- Server version	5.5.27
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `applicant`
+--
+
+DROP TABLE IF EXISTS `applicant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `applicant` (
+  `applicantid` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(20) DEFAULT NULL,
+  `lastname` varchar(20) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `hsgrad` int(11) DEFAULT NULL,
+  `hsgpa` decimal(4,2) DEFAULT NULL,
+  `major` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`applicantid`),
+  UNIQUE KEY `applicantid_UNIQUE` (`applicantid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `applicant`
+--
+
+LOCK TABLES `applicant` WRITE;
+/*!40000 ALTER TABLE `applicant` DISABLE KEYS */;
+INSERT INTO `applicant` VALUES (1,'Steve','Drucker','sdrucker@figleaf.com',NULL,2.74,'Basketweaving'),(2,'David','Gallerizzo','dgallerizzo@figleaf.com',NULL,3.95,'Dodgeball Arts'),(3,'Dave','Watts 2','dwatts@figleaf.com',1,2.00,'Curling');
+/*!40000 ALTER TABLE `applicant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course`
+--
+
+DROP TABLE IF EXISTS `course`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `course` (
+  `idcourse` int(11) NOT NULL AUTO_INCREMENT,
+  `idcurriculum` int(11) DEFAULT NULL,
+  `coursename` varchar(45) DEFAULT NULL,
+  `courseteaser` varchar(255) DEFAULT NULL,
+  `prereq` text,
+  `objectives` text,
+  `outline` text,
+  `duration` int(11) DEFAULT NULL,
+  `durationunits` varchar(5) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `videointrourl` varchar(100) DEFAULT NULL,
+  `videointroposter` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idcourse`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course`
+--
+
+LOCK TABLES `course` WRITE;
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,1,'Admin ColdFusion','This three-day hands-on class teaches the fundamentals of installing, configuring, troubleshooting, and maintaining ColdFusion servers. You will install and configure a cluster as well as deploy and load test CF applications.','<ul><li>Basic understanding of web network&nbsp;architecture and concepts</li><li>Experience using Microsoft Windows</li><li>Basic understanding of ColdFusion syntax (optional)<br></li></ul>','After completing this course, you will be able to:<br><ul><li>Install and Configure multiple load-balanced ColdFusion instances for robustness<br></li><li>Modify your JVM.config file to take full advantage of your hardware</li><li>Troubleshoot memory leaks and stability problems</li><li>Secure your server</li><li>Tune your server settings</li><li>Synchronize settings between servers</li><li>Load test your applications to identify concurrency problems and bottlenecks</li><li>Implement various caching strategies to improve performance <br></li></ul>','Section I: INSTALLING COLDFUSION 9</p><p>Unit 1: Introducing the Course<br></p><p>Unit 2: Installing ColdFusion 9</p><ul><li>What is ColdFusion - underlying architecture<br></li><li>Installation Components<br></li><li>Installing the standalone server </li><li>Installing Multiserver edition </li><li>Installing on J2EE </li><li>Web Server Connectivity Issues <ul><li>Configuring IIS </li><li>Configuring Apache&nbsp; </li><li>Configuring the Built-in development web server</li></ul></li><li>Troubleshooting installation problems <ul><li>Command-line startup </li><li>TCP/IP Issues <ul><li>Using Netstat </li><li>Software firewalls</li></ul></li></ul></li></ul><p>Unit 3: Configuring ColdFusion for the Enterprise</p><ul><li>Clustering Options </li><li>Solutions for Failover and Content Replication </li><li>Implementing and Managing a Cluster with Multiserver edition</li><li>Restricting service access to the OS</li><li>Enabling custom JVM.config files</li><li>Enabling sandbox security<br></li><li>Separating application and web servers <ul><li>CF Distributed Mode </li><li>Using a reverse proxy</li></ul></li></ul><p>Unit 4: Securing the ColdFusion Administrator</p><ul><li>Putting the Administrator in its own site</li><li>Integrating with Basic Authentication</li><li>Configuring the scripts path </li><li>Changing the root user name </li><li>Managing admin users&nbsp;accounts</li><li>Customizing options through CustomMenu.xml </li><li>Restricting Access to Administrative Options</li><li>Configuring Server Sandboxes for hosted environments<br></li></ul><p>SECTION II: SERVER CONFIGURATION</p><p>Unit 5: Tuning the CF Server for Performance</p><ul><li>About JVM Memory</li><li>Tuning the JVM</li><li>SQL Drivers</li><li>Caching</li><li>Request Tuning</li><li>Debugging</li><li>Client Variables</li><li>Memory Variables and the impact of web spiders</li><li>Charting</li><li>Verity K2 - configuring, clustering, and managing</li><li>Alternative full-text search solutions</li></ul>Unit 6: Managing Asynchronous Processes<ul><li>Scheduled Tasks</li><li>Common problems </li><li>Using the OS scheduler as an alternative </li><li>Async Gateways </li><li>Troubleshooting problems with Mail </li><li>Testing mail connectivity with telnet</li></ul><p>SECTION III: APPLICATION DEPLOYMENT AND TROUBLESHOOTING</p><p>Unit 7: Packaging and Deployment</p><ul><li>Creating and Restoring CAR Files</li><li>Compiling and Deploying an EAR/WAR file</li><li>Deploying New Instances<br></li></ul><p>Unit 8: Troubleshooting and Load Testing Applications Pre/Post Launch</p><ul><li>Load testing techniques</li><li>Reviewing debug output</li><li>Reviewing Log files</li><li>Using the ColdFusion (Multi) Server Monitor</li><ul><li>Overhead considerations</li><li>Executing Reports</li><li>Reading reports</li><li>Configuring Alerts</li></ul><li>Tools for heap dumps and analysis<br></li><li>Troubleshoot memory leaks with ORACLE JRockit Mission Control<br></li></ul><p>Unit 9: Resolving Bottlenecks in Code<br></p><ul><li>Threading</li><li>Database Caching</li><li>Caching Page Results<br></li></ul>',3,'Days',1995,NULL,NULL),(2,2,'WebDev in DW','Dreamweaver CS5: Website Development provides web designers with the knowledge and hands-on practice they need to build and manage professional web sites using Dreamweaver CS5. This course is 3 days in length and was developed by Fig Leaf Software.','<ul>',' <ul>','<h2>Unit 1: Introducing the Course</h2>',3,'Days',1095,NULL,NULL),(3,3,'Sencha Touch','Learn to build applications for iPhone, iPad, Android, and other devices using Sencha Touch - the first HTML 5 mobile framework!','<ul><li>Prior experience developing applications in JavaScript</li><li>Casual familiarity with JavaScript Object Notation (JSON)</li><li>Prior experience developing Cascading Style Sheets</li></ul>',NULL,NULL,2,'Days',1295,NULL,NULL),(4,1,'Adv ColdFusion','Learn how to develop enterprise-class applications',NULL,NULL,NULL,3,NULL,NULL,'advcf.mp4','advcf.png');
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `curriculum`
+--
+
+DROP TABLE IF EXISTS `curriculum`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `curriculum` (
+  `idcurriculum` int(11) NOT NULL AUTO_INCREMENT,
+  `curriculum` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idcurriculum`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curriculum`
+--
+
+LOCK TABLES `curriculum` WRITE;
+/*!40000 ALTER TABLE `curriculum` DISABLE KEYS */;
+INSERT INTO `curriculum` VALUES (1,'ColdFusion'),(2,'Dreamweaver'),(3,'Sencha'),(4,'Web Fundamentals');
+/*!40000 ALTER TABLE `curriculum` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feedback` (
+  `feedbackid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `quality` int(10) unsigned NOT NULL,
+  `prioritization` text,
+  `plan` text,
+  `begintime` datetime NOT NULL,
+  PRIMARY KEY (`feedbackid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feedback`
+--
+
+LOCK TABLES `feedback` WRITE;
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+INSERT INTO `feedback` VALUES (5,1,'sd','sdsdsd','2010-01-26 13:07:23'),(6,1,'fjsksdj','sjdksjdk','2010-01-26 13:11:22');
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `location`
+--
+
+DROP TABLE IF EXISTS `location`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `location` (
+  `idlocation` int(11) NOT NULL AUTO_INCREMENT,
+  `lat` decimal(12,9) DEFAULT NULL,
+  `lng` decimal(12,9) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`idlocation`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `location`
+--
+
+LOCK TABLES `location` WRITE;
+/*!40000 ALTER TABLE `location` DISABLE KEYS */;
+INSERT INTO `location` VALUES (1,38.986000000,-76.940131000,'Main Campus','This is the main campus of the university, strategically located near the beach'),(2,38.987201000,-76.940131000,'School of Basketweaving','Located in this historic building, built in 1978, the school turns out graduates who can weave the heck out of baskets'),(3,38.990440000,-76.949393000,'School of Dodgeball Arts','You had fun in grade school. Now turn it into a profession!');
+/*!40000 ALTER TABLE `location` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `person`
+--
+
+DROP TABLE IF EXISTS `person`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `person` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(10) NOT NULL,
+  `lastname` varchar(10) NOT NULL,
+  `address` varchar(80) DEFAULT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `zipcode` varchar(10) DEFAULT NULL,
+  `lat` decimal(10,8) DEFAULT NULL,
+  `lng` decimal(10,8) DEFAULT NULL,
+  `startdate` datetime DEFAULT NULL,
+  `department` varchar(20) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `updateuser` varchar(20) DEFAULT NULL,
+  `updatedate` datetime DEFAULT NULL,
+  `begintime` datetime DEFAULT NULL,
+  `endtime` datetime DEFAULT NULL,
+  `roles` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `person`
+--
+
+LOCK TABLES `person` WRITE;
+/*!40000 ALTER TABLE `person` DISABLE KEYS */;
+INSERT INTO `person` VALUES (0,'Anonymous','User',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(1,'Steve','Drucker',NULL,NULL,NULL,NULL,NULL,NULL,'2007-01-01 00:00:00','','sdrucker','password','','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','portaluser'),(2,'Dave','Watts',NULL,NULL,NULL,NULL,NULL,NULL,'2007-01-01 00:00:00','','','','','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','portaluser'),(3,'Dave','Gallerizzo',NULL,NULL,NULL,NULL,NULL,NULL,'2007-01-01 00:00:00','','','','','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','portaluser'),(4,'John','Drunkberry',NULL,NULL,NULL,NULL,NULL,NULL,'2007-01-01 00:00:00','','','','','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','portaluser'),(5,'A','Student',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'student','password',NULL,NULL,NULL,NULL,'portaluser'),(6,'Admin','Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'administrator','password',NULL,NULL,NULL,NULL,'admin');
+/*!40000 ALTER TABLE `person` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `professor`
+--
+
+DROP TABLE IF EXISTS `professor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `professor` (
+  `idprofessor` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(20) DEFAULT NULL,
+  `lname` varchar(20) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `bio` text,
+  `phone` varchar(20) DEFAULT NULL,
+  `specialtyID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idprofessor`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `professor`
+--
+
+LOCK TABLES `professor` WRITE;
+/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+INSERT INTO `professor` VALUES (1,'Steve','Drucker','sdrucker@figleaf.com',NULL,'202-415-8483',1),(2,'David','Gallerizzo','dgallerizzo@figleaf.com',NULL,'202-230-8922',2),(3,'David','Watts','dwatts@figleaf.com',NULL,'202-412-2463',3),(4,'David','Marsland','mars@sencha.com',NULL,'555-123-4567',1),(5,'Jeff','Harley','jhartley@sencha.com',NULL,'555-555-4442',1),(6,'Scott','Stewart','sstewart@figleaf.com',NULL,'555-555-5562',5),(7,'Lisa','Backer','lbacker@figeaf.com',NULL,'555-555-CODE',4);
+/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schedule` (
+  `idschedule` int(11) NOT NULL AUTO_INCREMENT,
+  `idcourse` int(11) DEFAULT NULL,
+  `idprofessor` int(11) DEFAULT NULL,
+  `location` varchar(30) DEFAULT NULL,
+  `startdate` date DEFAULT NULL,
+  PRIMARY KEY (`idschedule`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedule`
+--
+
+LOCK TABLES `schedule` WRITE;
+/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+INSERT INTO `schedule` VALUES (1,1,1,'Washington, DC','2010-12-01'),(2,2,2,'Washington, DC','2010-12-05'),(3,3,3,'San Francisco, CA','2010-12-15');
+/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `specialty`
+--
+
+DROP TABLE IF EXISTS `specialty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `specialty` (
+  `idspecialty` int(11) NOT NULL AUTO_INCREMENT,
+  `specialty` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idspecialty`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `specialty`
+--
+
+LOCK TABLES `specialty` WRITE;
+/*!40000 ALTER TABLE `specialty` DISABLE KEYS */;
+INSERT INTO `specialty` VALUES (1,'Sencha Touch'),(2,'Google Search Appliance'),(3,'Google Apps'),(4,'Adobe Flex'),(5,'Adobe ColdFusion');
+/*!40000 ALTER TABLE `specialty` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-11-27 15:12:06
